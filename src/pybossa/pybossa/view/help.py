@@ -1,0 +1,61 @@
+# -*- coding: utf8 -*-
+# This file is part of PyBossa.
+#
+# Copyright (C) 2013 SF Isle of Man Limited
+#
+# PyBossa is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# PyBossa is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with PyBossa.  If not, see <http://www.gnu.org/licenses/>.
+
+from flask import Blueprint
+from flask import render_template
+from pybossa.cache import apps as cached_apps
+from pybossa.cache import categories as cached_cat
+from random import choice
+
+blueprint = Blueprint('help', __name__)
+
+
+@blueprint.route('/api')
+def api():
+    """Render help/api page"""
+    categories = cached_cat.get_used()
+    apps, count = cached_apps.get(categories[0]['short_name'])
+    if len(apps) > 0:
+        app_id = choice(apps)['id']
+    else:  # pragma: no cover
+        app_id = None
+    return render_template('help/api.html', title="Help: API",
+                           app_id=app_id)
+
+
+@blueprint.route('/licencias')
+def license():
+    """Render help/license page"""
+    return render_template('help/license.html', title='Licencias')
+
+
+@blueprint.route('/terminos-de-uso')
+def tos():
+    """Render help/terms-of-use page"""
+    return render_template('help/tos.html', title='T&eacute;rminos de uso')
+
+
+@blueprint.route('/politica-de-cookies')
+def cookies_policy():
+    """Render help/cookies-policy page"""
+    return render_template('help/cookies_policy.html', title='Pol&iacute;tica de cookies')
+
+@blueprint.route('/aviso-legal')
+def aviso_legal():
+	# Render help/aviso-legal page
+	return render_template('help/aviso-legal.html', title='Aviso Legal')

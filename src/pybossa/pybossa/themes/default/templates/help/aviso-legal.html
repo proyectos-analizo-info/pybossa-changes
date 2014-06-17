@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% set active_page = "ayuda" %}
+
+{% block content %}
+{% include ['custom/_aviso-legal.html', 'help/_aviso-legal.html'] ignore missing %}
+{% endblock %}
