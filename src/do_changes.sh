@@ -16,6 +16,8 @@ else
         mkdir -p /home/pybossa/pybossa/themes/default/templates/custom
         cp -v pybossa/pybossa/auth/app.py /home/pybossa/pybossa/auth/app.py
         cp -v pybossa/pybossa/auth/app.py_bak /home/pybossa/pybossa/auth/app.py_bak
+        cp -v pybossa/pybossa/cache/apps.py /home/pybossa/pybossa/cache/apps.py
+        cp -v pybossa/pybossa/cache/apps.py_bak /home/pybossa/pybossa/cache/apps.py_bak
         cp -v pybossa/pybossa/web.py /home/pybossa/pybossa/web.py
         cp -v pybossa/pybossa/translations/messages.pot_bak /home/pybossa/pybossa/translations/messages.pot_bak
         cp -v pybossa/pybossa/translations/es/LC_MESSAGES/messages.po_bak /home/pybossa/pybossa/translations/es/LC_MESSAGES/messages.po_bak

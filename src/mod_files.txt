@@ -1,5 +1,7 @@
 pybossa/pybossa/auth/app.py
 pybossa/pybossa/auth/app.py_bak
+pybossa/pybossa/cache/apps.py
+pybossa/pybossa/cache/apps.py_bak
 pybossa/pybossa/web.py
 pybossa/pybossa/translations/messages.pot_bak
 pybossa/pybossa/translations/es/LC_MESSAGES/messages.po_bak
